@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rehan Laptop & Computer | Premium Hardware & Certified IT Center Sargodha</title>
+  <meta name="description" content="Sargodha's premier hardware destination. Direct enterprise imported laptops, high-performance gaming rigs, genuine accessories, and certified chip-level motherboard engineering. Shop #96, 1st Floor, Trust Plaza, Sargodha. Helpline: 0300-9607829.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              800: '#1e3a8a',
+              900: '#172554',
+              950: '#090d16',
+            },
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen pb-16 md:pb-0">
+
+  <!-- 1. Top Announcement Bar (Clean Customer Info, Zero ERP clutter) -->
+  <div class="bg-gradient-to-r from-brand-950 via-brand-900 to-brand-950 text-white text-xs sm:text-sm py-2 px-4 border-b border-amber-500/20">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2 font-medium">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <i class="fa-solid fa-location-dot text-amber-400"></i>
+        <span><strong>شاپ نمبر 96، فرسٹ فلور، ٹرسٹ پلازہ، سرگودھا</strong> (Shop #96, 1st Floor, Trust Plaza, Sargodha)</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs">
+        <a href="tel:03009607829" class="hover:text-amber-400 transition flex items-center gap-1">
+          <i class="fa-solid fa-phone text-amber-400"></i> 0300-9607829
+        </a>
+        <span class="text-slate-600">|</span>
+        <a href="https://wa.me/923009607829" target="_blank" class="hover:text-emerald-400 transition flex items-center gap-1 font-semibold text-emerald-400">
+          <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Support
+        </a>
+        <span class="text-slate-600 hidden sm:inline">|</span>
+        <span class="text-slate-300 hidden sm:inline"><i class="fa-solid fa-truck text-amber-400 mr-1"></i> Express Delivery Across Pakistan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Main Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+        
+        <!-- Logo & Branding -->
+        <a href="/" class="flex items-center gap-3 group" id="brandLogoTrigger" title="Double click for Staff Gateway">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-900 to-brand-700 flex items-center justify-center text-amber-400 shadow-md group-hover:scale-105 transition">
+            <i class="fa-solid fa-microchip text-2xl"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xl sm:text-2xl font-black text-brand-950 tracking-tight">REHAN</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-extrabold uppercase">Computers</span>
+            </div>
+            <p class="text-xs text-slate-500 font-medium">Laptops, Gaming Gear & Chip-Level Repair | Sargodha</p>
+          </div>
+        </a>
+
+        <!-- Live Search Bar -->
+        <div class="hidden md:flex flex-1 max-w-lg relative">
+          <input 
+            type="text" 
+            id="globalSearchInput" 
+            placeholder="Search laptops, mechanical keyboards, gaming mice, NVMe SSDs..." 
+            class="w-full pl-11 pr-10 py-2.5 bg-slate-100 hover:bg-slate-50 focus:bg-white border border-slate-300 focus:border-brand-600 rounded-full text-sm outline-none transition focus:ring-2 focus:ring-brand-500/20 shadow-inner"
+          >
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
+          <button id="clearSearchBtn" class="hidden absolute right-3.5 top-3 text-slate-400 hover:text-slate-600">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Navigation Links & Actions -->
+        <div class="flex items-center gap-2 sm:gap-4">
+          <a href="#catalogSection" class="hidden lg:flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-brand-700 px-3 py-2 rounded-lg hover:bg-slate-100 transition">
+            <i class="fa-solid fa-laptop text-brand-600"></i> Hardware Store
+          </a>
+          <a href="#repairSection" class="hidden lg:flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-brand-700 px-3 py-2 rounded-lg hover:bg-slate-100 transition">
+            <i class="fa-solid fa-screwdriver-wrench text-amber-600"></i> Hardware Lab
+          </a>
+          <a href="#trackingSection" class="hidden xl:flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-brand-700 px-3 py-2 rounded-lg hover:bg-slate-100 transition">
+            <i class="fa-solid fa-truck-fast text-emerald-600"></i> Track Order
+          </a>
+          <a href="#tradeInSection" class="hidden xl:flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-brand-700 px-3 py-2 rounded-lg hover:bg-slate-100 transition">
+            <i class="fa-solid fa-arrow-right-arrow-left text-blue-600"></i> Trade-In
+          </a>
+
+          <!-- Cart Button -->
+          <button id="cartToggleBtn" class="relative bg-brand-900 hover:bg-brand-800 text-white p-2.5 sm:px-4 sm:py-2.5 rounded-xl flex items-center gap-2.5 shadow-sm transition">
+            <i class="fa-solid fa-cart-shopping text-base sm:text-lg text-amber-400"></i>
+            <span class="hidden sm:inline text-xs font-bold uppercase tracking-wider">Cart</span>
+            <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-amber-500 text-slate-950 font-black text-xs w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+          </button>
+
+          <!-- Mobile Menu Toggle -->
+          <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-600 hover:text-brand-900">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Search Field -->
+      <div class="md:hidden pb-3">
+        <div class="relative">
+          <input 
+            type="text" 
+            id="mobileSearchInput" 
+            placeholder="Search laptops, accessories, SSDs..." 
+            class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-lg text-xs"
+          >
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Dropdown Navigation -->
+  <div id="mobileMenuDropdown" class="hidden md:hidden bg-slate-900 text-white px-4 py-3 space-y-2 border-b border-slate-800">
+    <a href="#catalogSection" class="block py-2 text-sm text-slate-200 hover:text-amber-400"><i class="fa-solid fa-laptop mr-2 text-amber-400"></i> Hardware & Laptops</a>
+    <a href="#accessoriesSection" class="block py-2 text-sm text-slate-200 hover:text-amber-400"><i class="fa-solid fa-headphones mr-2 text-amber-400"></i> Computer Accessories</a>
+    <a href="#repairSection" class="block py-2 text-sm text-slate-200 hover:text-amber-400"><i class="fa-solid fa-screwdriver-wrench mr-2 text-amber-400"></i> Board Repair Laboratory</a>
+    <a href="#trackingSection" class="block py-2 text-sm text-slate-200 hover:text-amber-400"><i class="fa-solid fa-truck-fast mr-2 text-amber-400"></i> Track Order / Repair</a>
+    <a href="#tradeInSection" class="block py-2 text-sm text-slate-200 hover:text-amber-400"><i class="fa-solid fa-recycle mr-2 text-amber-400"></i> Upgrade / Sell Device</a>
+    <a href="#locationSection" class="block py-2 text-sm text-slate-200 hover:text-amber-400"><i class="fa-solid fa-store mr-2 text-amber-400"></i> Trust Plaza Showroom</a>
+  </div>
+
+  <!-- 3. Original Hero Section: Fresh Branding & Authentic Slogans -->
+  <section class="relative bg-gradient-to-b from-brand-950 via-slate-900 to-brand-950 text-white pt-10 pb-16 overflow-hidden">
+    <!-- Subtle technical mesh pattern -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left: Original Narrative & Slogans -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-blue-500/20 border border-amber-400/30 px-3.5 py-1.5 rounded-full text-amber-300 text-xs sm:text-sm font-semibold shadow-inner">
+            <i class="fa-solid fa-award text-amber-400"></i>
+            <span>The Gold Standard in Sargodha's IT Landscape</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl xl:text-6xl font-black tracking-tight leading-tight">
+            Engineered for Power. <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+              Trusted by Generations.
+            </span>
+          </h1>
+
+          <div class="font-urdu text-amber-300 text-xl sm:text-2xl font-bold leading-relaxed">
+            سرگودھا کا سب سے معتبر آئی ٹی مرکز — جہاں ہر مشین شفافیت، تصدیق شدہ پرفارمنس اور پائیدار معیار کی علامت ہے!
+          </div>
+
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Eliminating compromise from computing. We curate pristine enterprise-grade laptops directly from premier corporate cycles across the USA & Japan, rigorously inspect them over 40 hardware checkpoints, and back them with Sargodha's foremost surgical chip-level diagnostic laboratory at <strong>Shop #96, Trust Plaza</strong>.
+          </p>
+
+          <!-- 3 Original Value Pillars -->
+          <div class="grid grid-cols-3 gap-3 pt-2 text-left">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/10 p-3 rounded-xl">
+              <i class="fa-solid fa-shield-halved text-amber-400 text-lg mb-1"></i>
+              <h4 class="text-xs font-bold text-white">40-Point Validation</h4>
+              <p class="text-[10px] text-slate-300">Stress-tested silicon & battery health</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm border border-white/10 p-3 rounded-xl">
+              <i class="fa-solid fa-scale-balanced text-emerald-400 text-lg mb-1"></i>
+              <h4 class="text-xs font-bold text-white">Honest Valuation</h4>
+              <p class="text-[10px] text-slate-300">Fair transparent market pricing</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm border border-white/10 p-3 rounded-xl">
+              <i class="fa-solid fa-microchip text-blue-400 text-lg mb-1"></i>
+              <h4 class="text-xs font-bold text-white">Surgical Repair</h4>
+              <p class="text-[10px] text-slate-300">In-house BGA & motherboard lab</p>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-4">
+            <a href="#catalogSection" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-lg shadow-amber-500/25 flex items-center gap-2 text-sm transition transform hover:-translate-y-0.5">
+              <i class="fa-solid fa-bag-shopping"></i> Explore Inventory
+            </a>
+            <a href="https://wa.me/923009607829?text=Assalam-o-Alaikum!%20I%20am%20inquiring%20about%20hardware%20from%20Rehan%20Computers%20Sargodha" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-xl shadow-lg shadow-emerald-600/25 flex items-center gap-2 text-sm transition transform hover:-translate-y-0.5">
+              <i class="fa-brands fa-whatsapp text-lg"></i> Direct Desk: 0300-9607829
+            </a>
+            <a href="#repairSection" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-4 py-3 rounded-xl text-sm transition">
+              <i class="fa-solid fa-screwdriver-wrench mr-1"></i> Diagnostic Lab
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right: Real Poster Graphic Visual Frame -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/40 glow-accent group">
+            <img 
+              src="/public/posters/hero_banner_main.jpeg" 
+              alt="Rehan Laptop & Computer Sargodha Poster" 
+              class="w-full h-auto object-cover transform group-hover:scale-102 transition duration-500"
+            >
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent p-4 text-center">
+              <span class="inline-block bg-amber-500 text-slate-950 text-xs font-black uppercase px-2.5 py-0.5 rounded-full mb-1">
+                Shop #96, 1st Floor, Trust Plaza, Sargodha
+              </span>
+              <p class="text-xs text-slate-200">Personal Assistance: <strong class="text-amber-400">0300-9607829</strong></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Global Brand Showcase Bar -->
+  <section class="bg-white border-y border-slate-200 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Certified Hardware Ecosystem:</span>
+        <div id="brandsStrip" class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Interactive Hardware Matchmaker (Quiz & Category Pills) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20">
+    <div class="bg-white rounded-2xl shadow-xl border border-slate-200/80 p-5 sm:p-6">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+        <div>
+          <h3 class="text-base sm:text-lg font-extrabold text-brand-950 flex items-center gap-2">
+            <i class="fa-solid fa-sliders text-amber-500"></i> Smart Hardware Matchmaker
+          </h3>
+          <p class="text-xs text-slate-500">Filter through verified enterprise machines, gaming rigs, and high-performance gear</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="resetFiltersBtn" class="text-xs text-brand-700 hover:text-brand-900 font-semibold px-2 py-1">
+            <i class="fa-solid fa-rotate-left mr-1"></i> Reset Filters
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+        
+        <!-- Category Dropdown -->
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1.5">Hardware Category</label>
+          <select id="filterCategory" class="w-full bg-slate-50 border border-slate-300 rounded-lg text-xs py-2.5 px-3 focus:ring-2 focus:ring-brand-500 outline-none">
+            <option value="">All Categories</option>
+          </select>
+        </div>
+
+        <!-- Brand Dropdown -->
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1.5">Manufacturer</label>
+          <select id="filterBrand" class="w-full bg-slate-50 border border-slate-300 rounded-lg text-xs py-2.5 px-3 focus:ring-2 focus:ring-brand-500 outline-none">
+            <option value="">All Manufacturers</option>
+          </select>
+        </div>
+
+        <!-- Condition -->
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1.5">Tier & Condition</label>
+          <select id="filterCondition" class="w-full bg-slate-50 border border-slate-300 rounded-lg text-xs py-2.5 px-3 focus:ring-2 focus:ring-brand-500 outline-none">
+            <option value="">All Conditions</option>
+            <option value="Grade A+ Used">Grade A+ Pristine (Corporate Off-Lease)</option>
+            <option value="Brand New">Brand New Factory Sealed</option>
+            <option value="Refurbished">Certified Workstation Refurbished</option>
+          </select>
+        </div>
+
+        <!-- Workload Purpose -->
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1.5">Workflow Application</label>
+          <select id="filterPurpose" class="w-full bg-slate-50 border border-slate-300 rounded-lg text-xs py-2.5 px-3 focus:ring-2 focus:ring-brand-500 outline-none">
+            <option value="">Any Workflow</option>
+            <option value="student">Academic / Office / Everyday Multitasking</option>
+            <option value="freelance">Freelancing / Software Development / Design</option>
+            <option value="gaming">Esports / High-FPS Gaming & Video Editing</option>
+            <option value="workstation">Heavy CAD, 3D Rendering & Engineering</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Main Product Catalog & Accessories Grid -->
+  <section id="catalogSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1">
+    
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-black text-brand-950 flex items-center gap-2">
+          <span>In-Stock Systems & Accessories</span>
+          <span id="productTotalCount" class="text-xs bg-brand-100 text-brand-900 font-extrabold px-2.5 py-1 rounded-full">Loading...</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500">Every machine is physically inspected, benchmarked, and ready for counter testing</p>
+      </div>
+
+      <!-- Sorting -->
+      <div class="flex items-center gap-2 self-end sm:self-auto">
+        <label class="text-xs font-bold text-slate-500">Arrange by:</label>
+        <select id="sortProducts" class="bg-white border border-slate-300 rounded-lg text-xs py-2 px-3 focus:ring-2 focus:ring-brand-500 outline-none">
+          <option value="newest">Fresh Arrivals First</option>
+          <option value="price_low">Price: Economical to High</option>
+          <option value="price_high">Price: High to Economical</option>
+          <option value="title_asc">Alphabetical: A to Z</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="noProductsFound" class="hidden text-center py-16">
+      <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400 text-2xl mb-4">
+        <i class="fa-solid fa-box-open"></i>
+      </div>
+      <h3 class="text-lg font-bold text-slate-700">No matching items found in current inventory</h3>
+      <p class="text-xs text-slate-500 max-w-md mx-auto mt-1">Adjust your filter criteria or message us directly on WhatsApp to check upcoming shipments arriving at Trust Plaza.</p>
+      <button onclick="document.getElementById('resetFiltersBtn').click()" class="mt-4 px-4 py-2 bg-brand-900 text-white rounded-lg text-xs font-bold hover:bg-brand-800">
+        Reset All Filters
+      </button>
+    </div>
+
+  </section>
+
+  <!-- 7. Creative Feature Showcase Cards (Featuring Real Posters) -->
+  <section class="bg-slate-900 text-white py-14 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-amber-400 font-bold text-xs uppercase tracking-wider">The Rehan Computers Advantage</span>
+        <h2 class="text-2xl sm:text-3xl font-black mt-1">Why Sargodha's Discerning Users Choose Us</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700 hover:border-amber-500/50 transition">
+          <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 relative bg-slate-950">
+            <img src="/public/posters/affordable_laptops.jpeg" alt="Affordable Laptops Sargodha" class="w-full h-full object-cover">
+          </div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">Unbeatable Value</span>
+          <h3 class="text-base font-bold mt-2">Premium Hardware Within Honest Reach</h3>
+          <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+            We bypass middlemen to import enterprise laptops that deliver powerhouse performance for students and creators at a fraction of brand-new retail costs.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700 hover:border-amber-500/50 transition">
+          <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 relative bg-slate-950">
+            <img src="/public/posters/repair_specialist.jpeg" alt="Chip-level Repairing Sargodha Trust Plaza" class="w-full h-full object-cover">
+          </div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded">Micro-Engineering</span>
+          <h3 class="text-base font-bold mt-2">Certified Board-Level Repair Laboratory</h3>
+          <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+            Equipped with microscope soldering stations, thermal cameras, and BIOS reprogrammers to revive laptops declared unrepairable by conventional shops.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-slate-800/80 rounded-2xl p-5 border border-slate-700 hover:border-amber-500/50 transition">
+          <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 relative bg-slate-950">
+            <img src="/public/posters/global_brands.jpeg" alt="Global Laptop Brands Sargodha" class="w-full h-full object-cover">
+          </div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">Tier-1 Imports</span>
+          <h3 class="text-base font-bold mt-2">Direct Global Enterprise Provenance</h3>
+          <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+            Sourced directly from corporate off-lease programs in the USA, UK, and Japan. Clean silicon, untouched motherboards, and verified hardware longevity.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. Precision Hardware Repair Clinic & RMA Center -->
+  <section id="repairSection" class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Info column -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+            <i class="fa-solid fa-microchip"></i> Advanced Workshop
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-brand-950">
+            Precision Component & Chip-Level Repair Lab
+          </h2>
+          <div class="font-urdu text-brand-900 text-lg font-bold">
+            اعلیٰ ترین تشخیصی لیب، ماہر انجینئرز اور تسلی بخش کام — شاپ نمبر 96 ٹرسٹ پلازہ سرگودھا
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Suffering from liquid ingress, power failure, cracked displays, faulty charging ICs, or corrupted BIOS? Register an intake ticket online to secure immediate bench diagnostics at our Trust Plaza repair center.
+          </p>
+
+          <div class="space-y-2 pt-2 text-xs font-medium text-slate-700">
+            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Free Multi-Point Fault Inspection on Test Bench</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Genuine OEM Replacement Modules & Panels</div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Real-Time Online Repair Progress Tracker</div>
+          </div>
+        </div>
+
+        <!-- Intake Form -->
+        <div class="lg:col-span-7 bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+          <form id="repairBookingForm" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Customer Name *</label>
+                <input type="text" id="repName" required placeholder="Full Name" class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5 focus:ring-2 focus:ring-brand-500 outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp / Phone Number *</label>
+                <input type="tel" id="repPhone" required placeholder="0300-1234567" class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5 focus:ring-2 focus:ring-brand-500 outline-none">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Hardware Brand *</label>
+                <select id="repBrand" required class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5 focus:ring-2 focus:ring-brand-500 outline-none">
+                  <option value="">Choose Manufacturer</option>
+                  <option value="Dell">Dell (Latitude / Precision / Inspiron)</option>
+                  <option value="HP">HP (EliteBook / ProBook / Omen)</option>
+                  <option value="Lenovo">Lenovo (ThinkPad / Legion / IdeaPad)</option>
+                  <option value="Apple">Apple MacBook (Air / Pro)</option>
+                  <option value="Asus">Asus (TUF / ROG / ZenBook)</option>
+                  <option value="Acer">Acer (Nitro / Predator / Aspire)</option>
+                  <option value="Other">Other Custom Desktop / Machine</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Device Model / Serial *</label>
+                <input type="text" id="repModel" required placeholder="e.g. ThinkPad T480 or HP 840 G6" class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5 focus:ring-2 focus:ring-brand-500 outline-none">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Fault Symptoms / Observations *</label>
+              <textarea id="repIssue" required rows="3" placeholder="Describe symptoms (e.g. no boot, charging port loose, hinge stuck, display flickering, blue screen...)" class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5 focus:ring-2 focus:ring-brand-500 outline-none"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Peripheral Handed In (Charger, Bag, Mouse)</label>
+              <input type="text" id="repAccessories" placeholder="e.g. Original Type-C Charger, Sleeve (or None)" class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5 focus:ring-2 focus:ring-brand-500 outline-none">
+            </div>
+
+            <button type="submit" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold py-3 rounded-xl text-xs sm:text-sm shadow-md transition">
+              <i class="fa-solid fa-ticket mr-2 text-amber-400"></i> Register Job Ticket & Reserve Bench Slot
+            </button>
+          </form>
+
+          <div id="repairSuccessMsg" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. Real-Time Order & Repair Tracking -->
+  <section id="trackingSection" class="py-14 bg-slate-100 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-8">
+        <span class="text-xs font-black uppercase text-brand-700 tracking-wider">Transparency Portal</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Track Delivery or Repair Job</h2>
+        <p class="text-xs text-slate-500 mt-1">Enter your Order Reference (e.g. RC-ORD-1001), Repair Ticket (e.g. RC-REP-3001), or Phone Number</p>
+      </div>
+
+      <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-slate-200">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input 
+            type="text" 
+            id="trackerInput" 
+            placeholder="Enter Order #, Repair Ticket #, or Mobile (0300...)" 
+            class="flex-1 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm p-3 outline-none focus:ring-2 focus:ring-brand-500"
+          >
+          <button id="trackSearchBtn" class="bg-brand-900 hover:bg-brand-800 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-sm transition">
+            <i class="fa-solid fa-magnifying-glass mr-2 text-amber-400"></i> Check Progress
+          </button>
+        </div>
+
+        <!-- Tracking Results Container -->
+        <div id="trackerResults" class="mt-6 hidden">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. Device Upgrade & Trade-In Concierge -->
+  <section id="tradeInSection" class="py-14 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            <i class="fa-solid fa-arrow-right-arrow-left"></i> Device Upgrade Concierge
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-brand-950">
+            Exchange or Monetize Your Used Laptop
+          </h2>
+          <div class="font-urdu text-brand-900 text-lg font-bold">
+            اپنا پرانا لیپ ٹاپ باوقار قیمت پر تبدیل کروائیں یا کیش حاصل کریں!
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Ready to upgrade to Core i7 or dedicated RTX gaming? We offer transparent evaluations for older working or repairable machines. Submit your device specifications for an honest bench appraisal.
+          </p>
+        </div>
+
+        <div class="lg:col-span-6 bg-slate-50 p-6 rounded-2xl border border-slate-200">
+          <form id="tradeInForm" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
+                <input type="text" id="trdName" required placeholder="Name" class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp Number *</label>
+                <input type="tel" id="trdPhone" required placeholder="0300-..." class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Current Device Brand *</label>
+                <input type="text" id="trdBrand" required placeholder="e.g. Dell / HP / Lenovo" class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Model & Configuration *</label>
+                <input type="text" id="trdModel" required placeholder="e.g. Core i5 6th Gen, 8GB RAM, 256GB SSD" class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Physical Condition *</label>
+                <select id="trdCondition" required class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5">
+                  <option value="Excellent (9/10)">Pristine / Minimal Scuffs (9/10)</option>
+                  <option value="Good (8/10)">Clean Everyday Usage (8/10)</option>
+                  <option value="Fair (7/10)">Normal Wear / Minor Scratches (7/10)</option>
+                  <option value="Has Faults">Known Fault (Battery / Screen / Port)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Expected Exchange Value (PKR)</label>
+                <input type="number" id="trdExpected" placeholder="e.g. 30000" class="w-full bg-white border border-slate-300 rounded-lg text-xs p-2.5">
+              </div>
+            </div>
+
+            <button type="submit" class="w-full bg-emerald-700 hover:bg-emerald-600 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm transition">
+              <i class="fa-solid fa-calculator mr-2"></i> Request Appraisal Quote
+            </button>
+          </form>
+
+          <div id="tradeInSuccessMsg" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 11. Trust Plaza Flagship Experience Center -->
+  <section id="locationSection" class="py-14 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <div class="lg:col-span-6 space-y-4">
+          <div class="inline-flex items-center gap-2 bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-bold">
+            <i class="fa-solid fa-store"></i> In-Person Experience Center
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black">
+            Visit Our Sargodha Technical Showroom
+          </h2>
+          <div class="font-urdu text-amber-300 text-xl font-bold">
+            شاپ نمبر 96، فرسٹ فلور، ٹرسٹ پلازہ، سرگودھا
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Test any system under real-world conditions prior to purchase. Our engineers will run hardware stress benchmarks on your selected laptop, verify battery capacity, and upgrade RAM or NVMe storage right on the counter while you relax.
+          </p>
+
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2 text-xs">
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-amber-400 mt-1"></i>
+              <div>
+                <strong class="text-white">Physical Address:</strong><br>
+                Shop #96, 1st Floor, Trust Plaza, Sargodha, Punjab, Pakistan.
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-phone text-amber-400"></i>
+              <div><strong class="text-white">Customer Helpdesk:</strong> 0300-9607829</div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <div><strong class="text-white">WhatsApp Line:</strong> 0300-9607829</div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-clock text-amber-400"></i>
+              <div><strong class="text-white">Operating Hours:</strong> Monday – Saturday: 10:30 AM – 9:30 PM (Friday break for Juma)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="bg-slate-800 rounded-2xl p-4 border border-slate-700 shadow-xl overflow-hidden">
+            <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-950 relative flex items-center justify-center">
+              <iframe 
+                src="https://maps.google.com/maps?q=Trust+Plaza+Sargodha&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                class="w-full h-full border-0" 
+                allowfullscreen="" 
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="mt-3 flex items-center justify-between text-xs text-slate-400">
+              <span>Trust Plaza Computer Hub, Sargodha</span>
+              <a href="https://maps.google.com/?q=Trust+Plaza+Sargodha" target="_blank" class="text-amber-400 hover:underline font-bold flex items-center gap-1">
+                Open Full Map <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 12. Clean E-Commerce Footer with Discreet Admin Gateway -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-white">
+            <span class="text-xl font-black">REHAN</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-extrabold">COMPUTERS</span>
+          </div>
+          <p class="font-urdu text-amber-300 text-sm">
+            ریحان لیپ ٹاپ اینڈ کمپیوٹر — کوالٹی، اعتماد اور بہترین سروس
+          </p>
+          <p class="text-slate-400 leading-relaxed text-[11px]">
+            Sargodha's premier hardware destination for enterprise laptops, high-performance computing towers, genuine accessories, and chip-level micro-soldering diagnostics.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Enterprise Systems</h4>
+          <ul class="space-y-1.5">
+            <li><a href="#catalogSection" class="hover:text-amber-400 transition">HP EliteBook & ProBook Series</a></li>
+            <li><a href="#catalogSection" class="hover:text-amber-400 transition">Dell Latitude & Precision Workstations</a></li>
+            <li><a href="#catalogSection" class="hover:text-amber-400 transition">Lenovo ThinkPad T & X Series</a></li>
+            <li><a href="#catalogSection" class="hover:text-amber-400 transition">Asus TUF & ROG Gaming Machines</a></li>
+            <li><a href="#catalogSection" class="hover:text-amber-400 transition">Apple MacBook Silicon Models</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Hardware & Support</h4>
+          <ul class="space-y-1.5">
+            <li><a href="#catalogSection" class="hover:text-amber-400 transition">Mechanical Keyboards & Mice</a></li>
+            <li><a href="#catalogSection" class="hover:text-amber-400 transition">Gen4 NVMe SSDs & RAM Upgrades</a></li>
+            <li><a href="#repairSection" class="hover:text-amber-400 transition">Motherboard Micro-Soldering</a></li>
+            <li><a href="#trackingSection" class="hover:text-amber-400 transition">Real-Time Dispatch Tracking</a></li>
+            <li><a href="#tradeInSection" class="hover:text-amber-400 transition">Device Upgrade Concierge</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Showroom Contact</h4>
+          <div class="space-y-2 text-slate-300 text-[11px]">
+            <p><i class="fa-solid fa-location-dot text-amber-400 mr-1.5"></i> Shop #96, 1st Floor, Trust Plaza, Sargodha</p>
+            <p><i class="fa-solid fa-phone text-amber-400 mr-1.5"></i> 0300-9607829</p>
+            <p><i class="fa-brands fa-whatsapp text-emerald-400 mr-1.5"></i> 0300-9607829</p>
+            <p><i class="fa-solid fa-envelope text-blue-400 mr-1.5"></i> contact@rehancomputers.pk</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-slate-500 text-[11px]">
+        <div>&copy; 2026 Rehan Laptop & Computer, Sargodha. All Rights Reserved.</div>
+        <div class="flex items-center gap-4">
+          <span>Safe Nationwide Delivery</span>
+          <span>•</span>
+          <span>In-Store Verification</span>
+          <span>•</span>
+          <!-- Discreet Admin Gateway Trigger (Hidden from normal shoppers) -->
+          <button id="adminGatewayBtn" class="text-slate-700 hover:text-slate-400 transition flex items-center gap-1 text-[10px]" title="Staff Authorization">
+            <i class="fa-solid fa-lock text-[9px]"></i>
+            <span class="opacity-70">Terminal</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 13. Shopping Cart Drawer -->
+  <div id="cartDrawerBackdrop" class="fixed inset-0 bg-slate-950/60 z-50 hidden transition-opacity"></div>
+  <div id="cartDrawer" class="fixed right-0 top-0 bottom-0 w-full sm:w-96 bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-cart-shopping text-brand-900"></i>
+        <h3 class="font-extrabold text-brand-950 text-base">Your Cart</h3>
+        <span id="drawerCount" class="bg-amber-500 text-slate-950 text-xs font-black px-2 py-0.5 rounded-full">0</span>
+      </div>
+      <button id="closeCartBtn" class="text-slate-400 hover:text-slate-600 p-1">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 space-y-3">
+      <!-- Injected via JS -->
+    </div>
+
+    <div class="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
+      <div class="space-y-1 text-xs">
+        <div class="flex justify-between text-slate-500">
+          <span>Subtotal</span>
+          <span id="cartSubtotal" class="font-bold text-slate-800">PKR 0</span>
+        </div>
+        <div class="flex justify-between text-slate-500">
+          <span>Delivery</span>
+          <span id="cartShippingFee" class="font-bold text-slate-800">Free in Sargodha</span>
+        </div>
+        <div class="flex justify-between text-sm font-extrabold text-brand-950 pt-2 border-t border-slate-200">
+          <span>Total</span>
+          <span id="cartTotalPayable" class="text-brand-900 font-black">PKR 0</span>
+        </div>
+      </div>
+
+      <button id="proceedToCheckoutBtn" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 rounded-xl text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2">
+        <span>Proceed to Checkout</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- 14. Checkout Modal -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 bg-slate-950/70 hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 relative my-8">
+      <div class="flex justify-between items-center pb-4 border-b border-slate-100">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-bag-shopping text-brand-900 text-lg"></i>
+          <h3 class="font-black text-brand-950 text-base">Complete Your Order</h3>
+        </div>
+        <button id="closeCheckoutBtn" class="text-slate-400 hover:text-slate-600">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form id="checkoutForm" class="space-y-3 pt-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Full Name *</label>
+          <input type="text" id="chkName" required placeholder="e.g. Tariq Mehmood" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 outline-none focus:ring-2 focus:ring-brand-500">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Mobile / WhatsApp *</label>
+            <input type="tel" id="chkPhone" required placeholder="0300-1234567" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">City *</label>
+            <input type="text" id="chkCity" required value="Sargodha" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 outline-none focus:ring-2 focus:ring-brand-500">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Delivery Address *</label>
+          <textarea id="chkAddress" required rows="2" placeholder="House #, Street, Plaza / Mohallah / Area..." class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Payment Method *</label>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2 p-2.5 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:border-brand-500">
+              <input type="radio" name="paymentMethod" value="cash_on_delivery" checked class="text-brand-900">
+              <div>
+                <strong class="text-slate-800">Cash on Delivery (COD)</strong>
+                <p class="text-[10px] text-slate-500">Pay cash upon delivery at your doorstep</p>
+              </div>
+            </label>
+
+            <label class="flex items-center gap-2 p-2.5 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:border-brand-500">
+              <input type="radio" name="paymentMethod" value="in_store_pickup" class="text-brand-900">
+              <div>
+                <strong class="text-slate-800">In-Store Counter Pickup (Shop #96 Trust Plaza)</strong>
+                <p class="text-[10px] text-slate-500">Inspect and collect directly from counter</p>
+              </div>
+            </label>
+
+            <label class="flex items-center gap-2 p-2.5 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:border-brand-500">
+              <input type="radio" name="paymentMethod" value="easypaisa_jazzcash" class="text-brand-900">
+              <div>
+                <strong class="text-slate-800">EasyPaisa / JazzCash / Direct Bank Wire</strong>
+                <p class="text-[10px] text-slate-500">Direct account transfer to 0300-9607829</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-extrabold py-3 rounded-xl text-sm shadow-md transition">
+            Confirm Order (<span id="chkBtnTotal">PKR 0</span>)
+          </button>
+        </div>
+      </form>
+
+      <!-- Order Placed Success View -->
+      <div id="orderSuccessView" class="hidden text-center py-6 space-y-3">
+        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h4 class="text-lg font-black text-slate-900">Order Placed Successfully!</h4>
+        <p class="text-xs text-slate-600">Your Order Number is <strong id="successOrderNum" class="text-brand-900 font-mono text-sm"></strong></p>
+        <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 text-xs text-left">
+          Our team at <strong>Shop #96 Trust Plaza Sargodha</strong> will contact you via WhatsApp / Phone for dispatch confirmation.
+        </div>
+        <button id="dismissOrderSuccessBtn" class="px-6 py-2 bg-brand-900 text-white rounded-xl text-xs font-bold">
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15. Product Quick Detail Modal -->
+  <div id="productDetailModal" class="fixed inset-0 z-50 bg-slate-950/70 hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 relative my-8">
+      <button id="closeDetailModalBtn" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600 z-10">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+      <div id="productDetailContent">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 16. Discreet Staff Gateway Modal (Admin Only, Not Visible to General Public) -->
+  <div id="staffGatewayModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 text-center relative">
+      <button id="closeStaffModalBtn" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-2xl bg-slate-950 text-amber-400 flex items-center justify-center mx-auto text-xl shadow mb-3">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+
+      <h3 class="text-lg font-black text-slate-900">Staff Authorization</h3>
+      <p class="text-xs text-slate-500">Shop #96 Trust Plaza ERP Management Access</p>
+
+      <form id="staffLoginForm" class="space-y-3 mt-4 text-left text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Username / ID</label>
+          <input type="text" id="staffUser" required placeholder="admin" value="admin" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 outline-none focus:ring-2 focus:ring-brand-500">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Access Key</label>
+          <input type="password" id="staffPass" required placeholder="••••••••" value="admin123" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 outline-none focus:ring-2 focus:ring-brand-500">
+        </div>
+        <div id="staffErrorMsg" class="hidden text-[11px] text-red-600 bg-red-50 p-2 rounded border border-red-200"></div>
+
+        <button type="submit" id="staffSubmitBtn" class="w-full bg-slate-950 hover:bg-slate-900 text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+          <span>Authorize & Enter ERP</span>
+          <i class="fa-solid fa-arrow-right text-amber-400"></i>
+        </button>
+      </form>
+      <div class="mt-3 text-[10px] text-slate-400">
+        Default Owner Login: <code>admin / admin123</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- 17. Floating WhatsApp Action -->
+  <a 
+    href="https://wa.me/923009607829?text=Assalam-o-Alaikum!%20I%20am%20inquiring%20about%20hardware%20from%20Rehan%20Computers%20Sargodha" 
+    target="_blank" 
+    class="fixed bottom-20 md:bottom-6 right-5 z-40 bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full flex items-center gap-2.5 shadow-2xl btn-whatsapp-pulse transition transform hover:scale-105 active:scale-95"
+    title="Direct WhatsApp Helpline"
+  >
+    <i class="fa-brands fa-whatsapp text-2xl"></i>
+    <span class="hidden sm:inline text-xs font-bold">0300-9607829</span>
+  </a>
+
+  <!-- 18. Mobile Bottom Sticky Navigation Bar -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 flex items-center justify-around text-[10px] font-bold text-slate-600 shadow-xl">
+    <a href="#catalogSection" class="flex flex-col items-center gap-0.5 hover:text-brand-900">
+      <i class="fa-solid fa-laptop text-base text-brand-900"></i>
+      <span>Laptops</span>
+    </a>
+    <a href="#accessoriesSection" class="flex flex-col items-center gap-0.5 hover:text-brand-900">
+      <i class="fa-solid fa-keyboard text-base text-emerald-600"></i>
+      <span>Accessories</span>
+    </a>
+    <a href="#repairSection" class="flex flex-col items-center gap-0.5 hover:text-brand-900">
+      <i class="fa-solid fa-wrench text-base text-amber-600"></i>
+      <span>Repair</span>
+    </a>
+    <button onclick="document.getElementById('cartToggleBtn').click()" class="flex flex-col items-center gap-0.5 text-brand-950 relative">
+      <i class="fa-solid fa-cart-shopping text-base text-amber-500"></i>
+      <span>Cart</span>
+    </button>
+    <a href="tel:03009607829" class="flex flex-col items-center gap-0.5 text-emerald-700">
+      <i class="fa-solid fa-phone text-base text-emerald-600"></i>
+      <span>Call</span>
+    </a>
+  </div>
+
+  <!-- Frontend Store Script -->
+  <script src="/js/store.js"></script>
+</body>
+</html>

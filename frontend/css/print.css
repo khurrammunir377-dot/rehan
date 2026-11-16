@@ -1,0 +1,51 @@
+/* Print Stylesheet for Invoices and Thermal Receipts */
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area, .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  /* Thermal 80mm format */
+  .thermal-receipt {
+    width: 78mm !important;
+    margin: 0 auto !important;
+    padding: 2mm !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    color: #000 !important;
+  }
+
+  .thermal-receipt table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  .thermal-receipt th, .thermal-receipt td {
+    padding: 3px 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
