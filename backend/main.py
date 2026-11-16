@@ -42,12 +42,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Vercel URL rewrite middleware (restores original client route from x-matched-path)
+# Vercel URL rewrite middleware (restores original client route from x-forwarded-uri / x-matched-path)
 @app.middleware("http")
 async def vercel_url_rewrite_middleware(request: Request, call_next):
-    matched = request.headers.get("x-matched-path") or request.headers.get("x-invoke-path")
-    if matched and matched != request.url.path and request.url.path.startswith("/api/index"):
-        request.scope["path"] = matched
+    orig_path = (
+        request.headers.get("x-forwarded-uri")
+        or request.headers.get("x-matched-path")
+        or request.headers.get("x-invoke-path")
+    )
+    if orig_path:
+        clean_path = orig_path.split("?")[0]
+        if clean_path != request.url.path:
+            request.scope["path"] = clean_path
     return await call_next(request)
 
 # Include API Routers
@@ -79,8 +85,6 @@ if os.path.exists(FRONTEND_DIR):
 
 # Serve pages
 @app.get("/", response_class=FileResponse)
-@app.get("/api/index.py", response_class=FileResponse)
-@app.get("/api/index", response_class=FileResponse)
 def serve_storefront():
     index_path = os.path.join(FRONTEND_DIR, "index.html")
     return FileResponse(index_path)
