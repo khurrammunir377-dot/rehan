@@ -45,6 +45,7 @@ app.add_middleware(
 # Vercel URL rewrite middleware (restores original client route from x-forwarded-uri / x-matched-path)
 @app.middleware("http")
 async def vercel_url_rewrite_middleware(request: Request, call_next):
+    raw_path = request.url.path
     orig_path = (
         request.headers.get("x-forwarded-uri")
         or request.headers.get("x-matched-path")
@@ -54,6 +55,7 @@ async def vercel_url_rewrite_middleware(request: Request, call_next):
         clean_path = orig_path.split("?")[0]
         if clean_path != request.url.path:
             request.scope["path"] = clean_path
+    print(f"VERCEL_DEBUG: raw={raw_path} | orig={orig_path} | resolved={request.scope.get('path')}")
     return await call_next(request)
 
 # Include API Routers
@@ -85,19 +87,29 @@ if os.path.exists(FRONTEND_DIR):
 
 # Serve pages
 @app.get("/", response_class=FileResponse)
+@app.get("/frontend/index.html", response_class=FileResponse)
 def serve_storefront():
     index_path = os.path.join(FRONTEND_DIR, "index.html")
     return FileResponse(index_path)
 
 @app.get("/admin", response_class=FileResponse)
+@app.get("/admin.html", response_class=FileResponse)
+@app.get("/frontend/admin.html", response_class=FileResponse)
 def serve_erp():
     admin_path = os.path.join(FRONTEND_DIR, "admin.html")
     return FileResponse(admin_path)
 
-@app.get("/admin.html", response_class=FileResponse)
-def serve_erp_alias():
-    admin_path = os.path.join(FRONTEND_DIR, "admin.html")
-    return FileResponse(admin_path)
+@app.get("/frontend/css/{file_path:path}")
+def serve_frontend_css(file_path: str):
+    return FileResponse(os.path.join(FRONTEND_DIR, "css", file_path))
+
+@app.get("/frontend/js/{file_path:path}")
+def serve_frontend_js(file_path: str):
+    return FileResponse(os.path.join(FRONTEND_DIR, "js", file_path))
+
+@app.get("/frontend/public/{file_path:path}")
+def serve_frontend_public(file_path: str):
+    return FileResponse(os.path.join(FRONTEND_DIR, "public", file_path))
 
 @app.get("/api/health")
 def health_check():
