@@ -1,5 +1,6 @@
 import os
 from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -42,20 +43,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Vercel URL rewrite middleware (restores original client route from x-forwarded-uri / x-matched-path)
+# Vercel URL rewrite middleware (restores original client route from query param / headers)
 @app.middleware("http")
 async def vercel_url_rewrite_middleware(request: Request, call_next):
-    raw_path = request.url.path
     orig_path = (
-        request.headers.get("x-forwarded-uri")
+        request.query_params.get("__orig_path")
+        or request.headers.get("x-forwarded-uri")
         or request.headers.get("x-matched-path")
         or request.headers.get("x-invoke-path")
     )
     if orig_path:
         clean_path = orig_path.split("?")[0]
-        if clean_path != request.url.path:
-            request.scope["path"] = clean_path
-    print(f"VERCEL_DEBUG: raw={raw_path} | orig={orig_path} | resolved={request.scope.get('path')}")
+        request.scope["path"] = clean_path
     return await call_next(request)
 
 # Include API Routers
