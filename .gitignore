@@ -15,3 +15,5 @@ venv/
 ENV/
 .vercel
 *.log
+
+.vercel

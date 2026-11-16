@@ -16,6 +16,12 @@ else:
 
 @contextmanager
 def get_db():
+    if os.environ.get("VERCEL"):
+        TEMP_DB = "/tmp/rehan_computers.db"
+        ORIGINAL_DB = os.path.join(DB_DIR, "rehan_computers.db")
+        if not os.path.exists(TEMP_DB) and os.path.exists(ORIGINAL_DB):
+            import shutil
+            shutil.copyfile(ORIGINAL_DB, TEMP_DB)
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")

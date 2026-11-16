@@ -21,8 +21,11 @@ from backend.routers import (
 )
 
 # Initialize and seed database if necessary
-init_db()
-seed_database()
+try:
+    init_db()
+    seed_database()
+except Exception as e:
+    print(f"Warning: database initialization notice: {e}")
 
 app = FastAPI(
     title="Rehan Computers E-Commerce & ERP System",
@@ -56,10 +59,15 @@ app.include_router(erp_visitors.router)
 FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend")
 
 if os.path.exists(FRONTEND_DIR):
-    # Mount css, js, public
-    app.mount("/css", StaticFiles(directory=os.path.join(FRONTEND_DIR, "css")), name="css")
-    app.mount("/js", StaticFiles(directory=os.path.join(FRONTEND_DIR, "js")), name="js")
-    app.mount("/public", StaticFiles(directory=os.path.join(FRONTEND_DIR, "public")), name="public")
+    try:
+        if os.path.exists(os.path.join(FRONTEND_DIR, "css")):
+            app.mount("/css", StaticFiles(directory=os.path.join(FRONTEND_DIR, "css")), name="css")
+        if os.path.exists(os.path.join(FRONTEND_DIR, "js")):
+            app.mount("/js", StaticFiles(directory=os.path.join(FRONTEND_DIR, "js")), name="js")
+        if os.path.exists(os.path.join(FRONTEND_DIR, "public")):
+            app.mount("/public", StaticFiles(directory=os.path.join(FRONTEND_DIR, "public")), name="public")
+    except Exception as e:
+        print("Static mount note:", e)
 
 # Serve pages
 @app.get("/", response_class=FileResponse)

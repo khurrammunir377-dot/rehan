@@ -11,8 +11,15 @@ from backend.models import ProductCreate, ProductUpdate, StockAdjustIn, ProductP
 
 router = APIRouter(prefix="/api/erp/products", tags=["ERP Products & Inventory"])
 
-UPLOAD_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "frontend", "public", "uploads")
-os.makedirs(UPLOAD_DIR, exist_ok=True)
+if os.environ.get("VERCEL"):
+    UPLOAD_DIR = "/tmp/uploads"
+else:
+    UPLOAD_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "frontend", "public", "uploads")
+
+try:
+    os.makedirs(UPLOAD_DIR, exist_ok=True)
+except Exception:
+    pass
 
 @router.post("/upload-image", dependencies=[Depends(require_role(["admin", "manager"]))])
 def upload_image(payload: dict, current_user: dict = Depends(get_current_user)):
