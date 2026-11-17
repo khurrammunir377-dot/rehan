@@ -329,6 +329,26 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const res = await fetch(`/api/public/products?${params.toString()}`);
       allProducts = await res.json();
+      
+      // Ensure Laptops are at the top and accessories are at the last
+      if (!sortVal || sortVal === "newest") {
+        const getCatPriority = (p) => {
+          const c = (p.category_slug || p.category_name || "").toLowerCase();
+          if (c.includes("laptop")) return 1;
+          if (c.includes("desktop") || c.includes("cpu")) return 2;
+          if (c.includes("monitor") || c.includes("display") || c.includes("led")) return 3;
+          if (c.includes("repair")) return 4;
+          return 5; // accessories & parts at the last
+        };
+        allProducts.sort((a, b) => {
+          const pa = getCatPriority(a);
+          const pb = getCatPriority(b);
+          if (pa !== pb) return pa - pb;
+          if ((b.is_featured || 0) !== (a.is_featured || 0)) return (b.is_featured || 0) - (a.is_featured || 0);
+          return a.id - b.id;
+        });
+      }
+
       applyPurposeFilter();
       renderProducts();
     } catch (err) {

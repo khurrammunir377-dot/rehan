@@ -89,7 +89,7 @@ def get_products(
         elif sort == "title_asc":
             query += " ORDER BY p.title ASC"
         else:
-            query += " ORDER BY p.id DESC"
+            query += " ORDER BY COALESCE(c.display_order, 99) ASC, p.is_featured DESC, p.id ASC"
 
         query += " LIMIT ? OFFSET ?"
         params.extend([limit, offset])

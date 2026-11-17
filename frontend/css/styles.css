@@ -1,5 +1,5 @@
 /* Rehan Laptop & Computer Custom Stylesheet */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
 
 :root {
   --rc-primary: #1E3A8A; /* Deep Navy Blue */
@@ -18,8 +18,14 @@ body {
 }
 
 .font-urdu {
-  font-family: 'Noto Nastaliq Urdu', serif;
-  line-height: 2.2;
+  font-family: 'Noto Sans Arabic', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.8;
+}
+
+.font-urdu-modern {
+  font-family: 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+  letter-spacing: 0;
 }
 
 /* Glassmorphism */

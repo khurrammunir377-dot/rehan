@@ -68,17 +68,13 @@
       <div class="flex items-center justify-between h-20 gap-4">
         
         <!-- Logo & Branding -->
-        <a href="/" class="flex items-center gap-3 group" id="brandLogoTrigger" title="Double click for Staff Gateway">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-900 to-brand-700 flex items-center justify-center text-amber-400 shadow-md group-hover:scale-105 transition">
-            <i class="fa-solid fa-microchip text-2xl"></i>
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-xl sm:text-2xl font-black text-brand-950 tracking-tight">REHAN</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-extrabold uppercase">Computers</span>
-            </div>
-            <p class="text-xs text-slate-500 font-medium">Laptops, Gaming Gear & Chip-Level Repair | Sargodha</p>
-          </div>
+        <a href="/" class="flex items-center gap-2 group" id="brandLogoTrigger" title="Double click for Staff Gateway">
+          <img 
+            src="/logo.svg" 
+            onerror="this.onerror=null; this.src='/public/logo.svg';" 
+            alt="Rehan Laptop & Computer Logo" 
+            class="h-12 w-auto object-contain transform group-hover:scale-102 transition duration-200"
+          >
         </a>
 
         <!-- Live Search Bar -->
@@ -173,8 +169,14 @@
             </span>
           </h1>
 
-          <div class="font-urdu text-amber-300 text-xl sm:text-2xl font-bold leading-relaxed">
-            سرگودھا کا سب سے معتبر آئی ٹی مرکز — جہاں ہر مشین شفافیت، تصدیق شدہ پرفارمنس اور پائیدار معیار کی علامت ہے!
+          <!-- Modern High-Tech Urdu Hallmark (Crisp White & Tech Seal) -->
+          <div class="inline-block bg-slate-900/90 border border-slate-700/80 rounded-2xl px-5 py-3 shadow-xl backdrop-blur-md" dir="rtl">
+            <div class="flex items-center gap-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <p class="font-urdu-modern text-white text-sm sm:text-base font-semibold leading-relaxed">
+                سرگودھا کا بااعتماد آئی ٹی مرکز — معیاری امپورٹڈ لیپ ٹاپس، اصلی پرزہ جات اور شفاف ٹیسٹنگ کی مکمل گارنٹی!
+              </p>
+            </div>
           </div>
 
           <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -672,11 +674,13 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         
         <div class="space-y-3">
-          <div class="flex items-center gap-2 text-white">
-            <span class="text-xl font-black">REHAN</span>
-            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-extrabold">COMPUTERS</span>
-          </div>
-          <p class="font-urdu text-amber-300 text-sm">
+          <img 
+            src="/logo-dark.svg" 
+            onerror="this.onerror=null; this.src='/public/logo-dark.svg';" 
+            alt="Rehan Computers Logo" 
+            class="h-11 w-auto object-contain"
+          >
+          <p class="font-urdu-modern text-slate-300 text-xs font-medium" dir="rtl">
             ریحان لیپ ٹاپ اینڈ کمپیوٹر — کوالٹی، اعتماد اور بہترین سروس
           </p>
           <p class="text-slate-400 leading-relaxed text-[11px]">

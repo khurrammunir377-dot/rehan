@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 80" width="460" height="80" fill="none">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Group: Emblem Mark -->
+  <g transform="translate(10, 8)">
+    <!-- Base Rounded Hexagon Shield -->
+    <rect x="0" y="0" width="64" height="64" rx="16" fill="url(#shieldGrad)" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.4"/>
+    
+    <!-- Circuit lines on background of emblem -->
+    <path d="M12 18h10l6 6v16" stroke="#38bdf8" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.35" fill="none"/>
+    <circle cx="12" cy="18" r="2" fill="#38bdf8" fill-opacity="0.6"/>
+    <path d="M52 46h-10l-6-6v-16" stroke="#fbbf24" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.35" fill="none"/>
+    <circle cx="52" cy="46" r="2" fill="#fbbf24" fill-opacity="0.6"/>
+    
+    <!-- Stylized Laptop Body forming the base of R -->
+    <!-- Screen Frame -->
+    <rect x="16" y="16" width="32" height="22" rx="3" fill="#090d16" stroke="url(#cyanGrad)" stroke-width="1.5"/>
+    <!-- Laptop Base Keyboard Deck -->
+    <path d="M11 41h42l-4 4H15l-4-4z" fill="url(#goldGrad)"/>
+    <rect x="26" y="42" width="12" height="1.5" rx="0.75" fill="#0f172a"/>
+    
+    <!-- Luminous Capital 'R' Silhouette inside Laptop Screen -->
+    <path d="M22 21h8c3 0 5 1.5 5 4s-2 4-5 4h-5v7h-3V21zm3 2.5v3.5h5c1.5 0 2.5-.7 2.5-1.75s-1-1.75-2.5-1.75h-5z" fill="#ffffff"/>
+    <path d="M28 29l6.5 7h-3.8L25 29.5z" fill="url(#goldGrad)"/>
+    
+    <!-- Golden Core Sparkle / Trust Diamond -->
+    <polygon points="50,14 53,19 58,22 53,25 50,30 47,25 42,22 47,19" fill="url(#goldGrad)" filter="url(#glow)"/>
+  </g>
+
+  <!-- Typography: REHAN COMPUTERS -->
+  <!-- Brand Title -->
+  <text x="88" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif" font-size="28" font-weight="900" fill="#0f172a" letter-spacing="1.5">REHAN</text>
+  
+  <!-- Pill Badge: LAPTOP & COMPUTER -->
+  <rect x="204" y="18" width="168" height="24" rx="6" fill="#f59e0b"/>
+  <text x="288" y="34.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif" font-size="11" font-weight="900" fill="#0f172a" text-anchor="middle" letter-spacing="1">LAPTOP &amp; COMPUTER</text>
+  
+  <!-- Sub-headline / Trust Heritage -->
+  <text x="89" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif" font-size="11" font-weight="600" fill="#475569" letter-spacing="0.5">TRUST PLAZA, SARGODHA</text>
+  <circle cx="242" cy="54.5" r="2" fill="#0284c7"/>
+  <text x="250" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif" font-size="11" font-weight="700" fill="#0284c7" letter-spacing="0.5">EST. HARDWARE &amp; LAB</text>
+</svg>
