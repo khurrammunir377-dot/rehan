@@ -1,4 +1,43 @@
 // Rehan Laptop & Computer - Storefront JavaScript
+window.getProductFallbackImage = function(category = "", brand = "REHAN", title = "") {
+  const cat = (category || "").toLowerCase();
+  const br = (brand || "REHAN").toUpperCase();
+  let icon = "💻";
+  let bgGradient = "#0f172a, #1e293b";
+  if (cat.includes("gaming")) {
+    icon = "🎮";
+    bgGradient = "#1e1b4b, #312e81";
+  } else if (cat.includes("desktop") || cat.includes("cpu")) {
+    icon = "🖥️";
+    bgGradient = "#042f2e, #134e4a";
+  } else if (cat.includes("monitor") || cat.includes("display") || cat.includes("led")) {
+    icon = "📺";
+    bgGradient = "#172554, #1e40af";
+  } else if (cat.includes("repair")) {
+    icon = "🔧";
+    bgGradient = "#451a03, #78350f";
+  } else if (cat.includes("accessory") || cat.includes("mouse") || cat.includes("keyboard") || cat.includes("ssd") || cat.includes("dock") || cat.includes("charger")) {
+    icon = "⚡";
+    bgGradient = "#3b0764, #581c87";
+  }
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450" viewBox="0 0 600 450">
+    <defs>
+      <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="${bgGradient.split(',')[0].trim()}"/>
+        <stop offset="100%" stop-color="${bgGradient.split(',')[1].trim()}"/>
+      </linearGradient>
+    </defs>
+    <rect width="600" height="450" fill="url(#g)"/>
+    <circle cx="300" cy="180" r="80" fill="#ffffff" fill-opacity="0.08"/>
+    <text x="300" y="205" font-size="75" text-anchor="middle" dominant-baseline="middle">${icon}</text>
+    <rect x="170" y="295" width="260" height="38" rx="19" fill="#f59e0b" fill-opacity="0.95"/>
+    <text x="300" y="320" font-size="16" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-weight="900" fill="#0f172a" text-anchor="middle" letter-spacing="2">${br}</text>
+    <text x="300" y="370" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-weight="600" fill="#94a3b8" text-anchor="middle">REHAN LAPTOP &amp; COMPUTER</text>
+    <text x="300" y="400" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-weight="500" fill="#64748b" text-anchor="middle">Shop #96 Trust Plaza Sargodha</text>
+  </svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   // State
   let storeInfo = {};
@@ -371,10 +410,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Image & Badges -->
         <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden cursor-pointer product-img-trigger">
           <img 
-            src="${prod.image_url || 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format&fit=crop&q=80'}" 
+            src="${prod.image_url || window.getProductFallbackImage(prod.category_name, prod.brand_name, prod.title)}" 
             alt="${prod.title}" 
             class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
             loading="lazy"
+            onerror="this.onerror=null; this.src=window.getProductFallbackImage('${(prod.category_name || '').replace(/['\"]/g, '')}', '${(prod.brand_name || '').replace(/['\"]/g, '')}', '${(prod.title || '').replace(/['\"]/g, '')}');"
           >
           <div class="absolute top-2.5 left-2.5 flex flex-col gap-1 items-start">
             <span class="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full ${conditionBadgeClass} shadow-sm">
@@ -472,7 +512,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           <div class="space-y-3">
             <div class="aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
-              <img src="${prod.image_url || ''}" alt="${prod.title}" class="w-full h-full object-cover">
+              <img 
+                src="${prod.image_url || window.getProductFallbackImage(prod.category_name, prod.brand_name, prod.title)}" 
+                alt="${prod.title}" 
+                class="w-full h-full object-cover"
+                onerror="this.onerror=null; this.src=window.getProductFallbackImage('${(prod.category_name || '').replace(/['\"]/g, '')}', '${(prod.brand_name || '').replace(/['\"]/g, '')}', '${(prod.title || '').replace(/['\"]/g, '')}');"
+              >
             </div>
             <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 text-xs flex items-center gap-2">
               <i class="fa-solid fa-location-dot text-amber-600 text-sm"></i>
@@ -599,7 +644,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const itemEl = document.createElement("div");
       itemEl.className = "flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200";
       itemEl.innerHTML = `
-        <img src="${item.image_url || ''}" alt="${item.title}" class="w-14 h-14 rounded-lg object-cover bg-white border border-slate-200">
+        <img 
+          src="${item.image_url || window.getProductFallbackImage(item.category_name, item.brand_name, item.title)}" 
+          alt="${item.title}" 
+          class="w-14 h-14 rounded-lg object-cover bg-white border border-slate-200"
+          onerror="this.onerror=null; this.src=window.getProductFallbackImage('${(item.category_name || '').replace(/['\"]/g, '')}', '${(item.brand_name || '').replace(/['\"]/g, '')}', '${(item.title || '').replace(/['\"]/g, '')}');"
+        >
         <div class="flex-1 min-w-0">
           <h4 class="text-xs font-bold text-slate-900 truncate">${item.title}</h4>
           <div class="text-[11px] text-brand-900 font-black">PKR ${item.unit_price.toLocaleString()}</div>

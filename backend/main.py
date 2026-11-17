@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -98,17 +98,44 @@ def serve_erp():
     admin_path = os.path.join(FRONTEND_DIR, "admin.html")
     return FileResponse(admin_path)
 
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 @app.get("/frontend/css/{file_path:path}")
 def serve_frontend_css(file_path: str):
-    return FileResponse(os.path.join(FRONTEND_DIR, "css", file_path))
+    p = os.path.join(FRONTEND_DIR, "css", file_path)
+    if os.path.isfile(p):
+        return FileResponse(p)
+    return Response(status_code=404, content=b"CSS not found")
 
 @app.get("/frontend/js/{file_path:path}")
 def serve_frontend_js(file_path: str):
-    return FileResponse(os.path.join(FRONTEND_DIR, "js", file_path))
+    p = os.path.join(FRONTEND_DIR, "js", file_path)
+    if os.path.isfile(p):
+        return FileResponse(p)
+    return Response(status_code=404, content=b"JS not found")
 
 @app.get("/frontend/public/{file_path:path}")
+@app.get("/public/{file_path:path}")
+@app.get("/posters/{file_path:path}")
 def serve_frontend_public(file_path: str):
-    return FileResponse(os.path.join(FRONTEND_DIR, "public", file_path))
+    # Strip any leading slashes or prefixes
+    clean = file_path.lstrip("/").replace("public/", "").replace("posters/", "")
+    filename = os.path.basename(file_path)
+    
+    candidates = [
+        os.path.join(ROOT_DIR, "public", file_path),
+        os.path.join(ROOT_DIR, "public", "posters", filename),
+        os.path.join(ROOT_DIR, "public", "uploads", filename),
+        os.path.join(ROOT_DIR, "posters", filename),
+        os.path.join(FRONTEND_DIR, "public", file_path),
+        os.path.join(FRONTEND_DIR, "public", "posters", filename),
+        os.path.join(FRONTEND_DIR, "public", "uploads", filename),
+        os.path.join(ROOT_DIR, "public", clean),
+    ]
+    for c in candidates:
+        if os.path.isfile(c):
+            return FileResponse(c)
+    return Response(status_code=404, content=b"Image not found")
 
 @app.get("/api/health")
 def health_check():

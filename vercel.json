@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/index.py": {
+      "includeFiles": "{frontend/**,public/**,posters/**}"
+    }
+  },
   "rewrites": [
     {
       "source": "/api",
@@ -17,8 +22,12 @@
       "destination": "/frontend/js/:path*"
     },
     {
+      "source": "/posters/:path*",
+      "destination": "/public/posters/:path*"
+    },
+    {
       "source": "/public/:path*",
-      "destination": "/frontend/public/:path*"
+      "destination": "/public/:path*"
     },
     {
       "source": "/admin",

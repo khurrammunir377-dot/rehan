@@ -1,4 +1,20 @@
 // Rehan Computers - Business ERP & POS Management System Logic
+if (!window.getProductFallbackImage) {
+  window.getProductFallbackImage = function(category = "", brand = "REHAN", title = "") {
+    const cat = (category || "").toLowerCase();
+    const br = (brand || "REHAN").toUpperCase();
+    let icon = "💻";
+    let bgGradient = "#0f172a, #1e293b";
+    if (cat.includes("gaming")) icon = "🎮", bgGradient = "#1e1b4b, #312e81";
+    else if (cat.includes("desktop") || cat.includes("cpu")) icon = "🖥️", bgGradient = "#042f2e, #134e4a";
+    else if (cat.includes("monitor") || cat.includes("display") || cat.includes("led")) icon = "📺", bgGradient = "#172554, #1e40af";
+    else if (cat.includes("repair")) icon = "🔧", bgGradient = "#451a03, #78350f";
+    else if (cat.includes("accessory") || cat.includes("mouse") || cat.includes("keyboard") || cat.includes("ssd") || cat.includes("charger")) icon = "⚡", bgGradient = "#3b0764, #581c87";
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0f172a"/><text x="50" y="55" font-size="40" text-anchor="middle" dominant-baseline="middle">${icon}</text></svg>`;
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  };
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Authentication State
   let token = localStorage.getItem("rehan_token");
@@ -760,7 +776,11 @@ ${sale.discount > 0 ? `*Discount:* - PKR ${sale.discount.toLocaleString()}\n` : 
       <tr class="hover:bg-slate-50 transition">
         <td class="py-3 px-4">
           <div class="flex items-center gap-3">
-            <img src="${p.image_url || ''}" class="w-10 h-10 rounded-lg object-cover bg-slate-100 border border-slate-200">
+            <img 
+              src="${p.image_url || window.getProductFallbackImage(p.category_name, p.brand_name, p.title)}" 
+              onerror="this.onerror=null; this.src=window.getProductFallbackImage('${(p.category_name || '').replace(/['\"]/g, '')}', '${(p.brand_name || '').replace(/['\"]/g, '')}', '${(p.title || '').replace(/['\"]/g, '')}');"
+              class="w-10 h-10 rounded-lg object-cover bg-slate-100 border border-slate-200"
+            >
             <div>
               <div class="font-bold text-slate-900">${p.title}</div>
               <div class="text-[10px] text-slate-400 font-mono">${p.sku} | ${p.brand_name || 'Generic'}</div>
